@@ -2,7 +2,8 @@ use bevy::{prelude::*, render::camera::ScalingMode};
 use bevy_inspector_egui::WorldInspectorPlugin;
 use bevy_rapier2d::prelude::*;
 
-const ZOOM: f32 = 15.;
+const ZOOM: f32 = 18.;
+const CLEAR: Color = Color::DARK_GRAY;
 
 pub struct ConfigPlugin;
 impl Plugin for ConfigPlugin {
@@ -31,4 +32,3 @@ fn setup_camera(mut commands: Commands) {
     commands.spawn(camera);
 }
 
-const CLEAR: Color = Color::DARK_GRAY;
