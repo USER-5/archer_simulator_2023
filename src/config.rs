@@ -2,6 +2,8 @@ use bevy::{prelude::*, render::camera::ScalingMode};
 use bevy_inspector_egui::WorldInspectorPlugin;
 use bevy_rapier2d::prelude::*;
 
+use crate::smooth_camera::SmoothCamera;
+
 const ZOOM: f32 = 18.;
 const CLEAR: Color = Color::DARK_GRAY;
 
@@ -24,11 +26,11 @@ impl Plugin for DebugConfigPlugin {
 
 fn setup_camera(mut commands: Commands) {
     let mut camera = Camera2dBundle::default();
-    camera.transform.scale = Vec3::new(1./ZOOM,1./ZOOM,1.);
+    camera.transform.scale = Vec3::new(1. / ZOOM, 1. / ZOOM, 1.);
     camera.projection.scaling_mode = ScalingMode::Auto {
         min_width: 10.,
         min_height: 200.,
     };
-    commands.spawn(camera);
+    commands.spawn(camera).insert(SmoothCamera {});
 }
 

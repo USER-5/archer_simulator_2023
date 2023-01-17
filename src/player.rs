@@ -1,6 +1,8 @@
 use bevy::prelude::*;
-use bevy_inspector_egui::{reflect, Inspectable};
+use bevy_inspector_egui::Inspectable;
 use bevy_rapier2d::prelude::*;
+
+use crate::smooth_camera::SmoothCameraTarget;
 
 #[derive(Reflect, Inspectable, Default)]
 pub enum Direction {
@@ -45,6 +47,7 @@ pub fn spawn_archer(mut commands: Commands, asset_server: Res<AssetServer>) {
             max_rotation_angle: 8.,
             wiggle_magnitude: 0.7,
         })
+        .insert(SmoothCameraTarget {})
         .with_children(|child_builder| spawn_archer_rear(child_builder, asset_server));
 }
 
