@@ -47,7 +47,7 @@ pub fn spawn_archer(mut commands: Commands, asset_server: Res<AssetServer>) {
             max_rotation_angle: 8.,
             wiggle_magnitude: 0.7,
         })
-        .insert(SmoothCameraTarget {})
+        .insert(SmoothCameraTarget::default())
         .with_children(|child_builder| spawn_archer_rear(child_builder, asset_server));
 }
 

@@ -1,4 +1,4 @@
-use bevy::{prelude::*, window::PresentMode};
+use bevy::prelude::*;
 
 mod config;
 mod player;
