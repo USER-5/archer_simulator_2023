@@ -31,7 +31,5 @@ fn setup_camera(mut commands: Commands) {
         min_width: 10.,
         min_height: 200.,
     };
-    commands
-        .spawn(camera)
-        .insert(SmoothCamera { max_distance: 10., leniency: 3.0 });
+    commands.spawn(camera).insert(SmoothCamera::new(5., 2.5));
 }
