@@ -1,7 +1,6 @@
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 
-#[derive(Component, Reflect, Inspectable, Default)]
+#[derive(Component, Reflect, Default)]
 #[reflect(Component)]
 pub struct SmoothCamera {
     pub speed: f32,
@@ -19,7 +18,7 @@ impl SmoothCamera {
     }
 }
 
-#[derive(Component, Reflect, Inspectable)]
+#[derive(Component, Reflect)]
 #[reflect(Component)]
 pub struct SmoothCameraTarget {
     /// How much this particular target will "pull" the camera.
@@ -84,4 +83,3 @@ fn move_smooth_cameras(mut q_camera: Query<(&SmoothCamera, &mut Transform)>, tim
         transform.translation += move_diff * move_diff.length() * cam.speed * time.delta_seconds();
     }
 }
-// let step_proportion = (move_diff.length().clamp(0., cam.max_distance) / cam.max_distance).powi(2) * time.delta_seconds();

@@ -1,10 +1,9 @@
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 use bevy_rapier2d::prelude::*;
 
 use crate::smooth_camera::SmoothCameraTarget;
 
-#[derive(Reflect, Inspectable, Default)]
+#[derive(Reflect, Default)]
 pub enum Direction {
     Left,
     Right,
@@ -12,7 +11,7 @@ pub enum Direction {
     None,
 }
 
-#[derive(Component, Reflect, Inspectable, Default)]
+#[derive(Component, Reflect, Default)]
 #[reflect(Component)]
 pub struct Player {
     move_speed: f32,

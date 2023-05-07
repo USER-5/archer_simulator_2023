@@ -1,5 +1,5 @@
 use bevy::{prelude::*, render::camera::ScalingMode};
-use bevy_inspector_egui::WorldInspectorPlugin;
+use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use bevy_rapier2d::prelude::*;
 
 use crate::smooth_camera::SmoothCamera;
@@ -27,7 +27,7 @@ impl Plugin for DebugConfigPlugin {
 fn setup_camera(mut commands: Commands) {
     let mut camera = Camera2dBundle::default();
     camera.transform.scale = Vec3::new(1. / ZOOM, 1. / ZOOM, 1.);
-    camera.projection.scaling_mode = ScalingMode::Auto {
+    camera.projection.scaling_mode = ScalingMode::AutoMin {
         min_width: 10.,
         min_height: 200.,
     };

@@ -9,17 +9,10 @@ use smooth_camera::SmoothCameraPlugin;
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins.set(WindowPlugin {
-            window: WindowDescriptor {
-                width: 1920.,
-                height: 1080.,
-                ..default()
-            },
-            ..default()
-        }))
+        .add_plugins(DefaultPlugins)
         .add_plugin(ConfigPlugin)
         // comment / uncomment as needed
-        // .add_plugin(DebugConfigPlugin)
+        .add_plugin(DebugConfigPlugin)
         .add_plugin(SmoothCameraPlugin)
         .add_startup_system(floor_texture)
         .add_startup_system(player::spawn_archer)
